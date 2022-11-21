@@ -23,9 +23,10 @@ import {
   Editor,
 } from "./pages";
 import { Side } from "@syncfusion/ej2/svg-base";
+import { useStateContext } from "./contexts/ContextProvider";
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
 
   return (
     <div>
