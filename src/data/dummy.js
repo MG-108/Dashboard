@@ -47,7 +47,7 @@ import product8 from "./assets/product8.jpg";
 export const gridOrderImage = (props) => (
   <div>
     <img
-      className="rounded-xl h-20 md:ml-3"
+      className="rounded-xl h-20  md:ml-3"
       src={props.ProductImage}
       alt="order-item"
     />
@@ -85,6 +85,7 @@ const gridEmployeeProfile = (props) => (
       src={props.EmployeeImage}
       alt="employee"
     />
+
     <p>{props.Name}</p>
   </div>
 );
@@ -452,7 +453,7 @@ export const employeesGrid = [
     template: gridEmployeeProfile,
     textAlign: "Center",
   },
-  { field: "Name", headerText: "", width: "0", textAlign: "Center" },
+
   { field: "Title", headerText: "Designation", width: "170", textAlign: "Center" },
   {
     headerText: "Country",
@@ -464,7 +465,7 @@ export const employeesGrid = [
   {
     field: "HireDate",
     headerText: "Hire Date",
-    width: "135",
+    width: "120",
     format: "yMd",
     textAlign: "Center",
   },
@@ -897,9 +898,9 @@ export const ordersGrid = [
     width: "150",
   },
   {
+    field: "OrderItems",
     headerText: "Status",
     template: gridOrderStatus,
-    field: "OrderItems",
     textAlign: "Center",
     width: "120",
   },
@@ -2013,7 +2014,6 @@ export const ordersData = [
   {
     OrderID: 10248,
     CustomerName: "Vinet",
-
     TotalAmount: 32.38,
     OrderItems: "Fresh Tomato",
     Location: "USA",
