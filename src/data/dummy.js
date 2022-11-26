@@ -47,7 +47,7 @@ import product8 from "./assets/product8.jpg";
 export const gridOrderImage = (props) => (
   <div>
     <img
-      className="rounded-xl h-20  md:ml-3"
+      className="rounded-xl h-20 md:ml-3"
       src={props.ProductImage}
       alt="order-item"
     />
@@ -85,7 +85,6 @@ const gridEmployeeProfile = (props) => (
       src={props.EmployeeImage}
       alt="employee"
     />
-
     <p>{props.Name}</p>
   </div>
 );
@@ -453,7 +452,7 @@ export const employeesGrid = [
     template: gridEmployeeProfile,
     textAlign: "Center",
   },
-
+  { field: "Name", headerText: "", width: "0", textAlign: "Center" },
   { field: "Title", headerText: "Designation", width: "170", textAlign: "Center" },
   {
     headerText: "Country",
@@ -465,7 +464,7 @@ export const employeesGrid = [
   {
     field: "HireDate",
     headerText: "Hire Date",
-    width: "120",
+    width: "135",
     format: "yMd",
     textAlign: "Center",
   },
@@ -629,7 +628,7 @@ export const earningData = [
     title: "Customers",
     iconColor: "#03C9D7",
     iconBg: "#E5FAFB",
-    pcColor: "text-red-600",
+    pcColor: "red-600",
   },
   {
     icon: <BsBoxSeam />,
@@ -638,7 +637,7 @@ export const earningData = [
     title: "Products",
     iconColor: "rgb(255, 244, 229)",
     iconBg: "rgb(254, 201, 15)",
-    pcColor: "text-green-600",
+    pcColor: "green-600",
   },
   {
     icon: <FiBarChart />,
@@ -648,7 +647,7 @@ export const earningData = [
     iconColor: "rgb(228, 106, 118)",
     iconBg: "rgb(255, 244, 229)",
 
-    pcColor: "text-green-600",
+    pcColor: "green-600",
   },
   {
     icon: <HiOutlineRefresh />,
@@ -657,7 +656,7 @@ export const earningData = [
     title: "Refunds",
     iconColor: "rgb(0, 194, 146)",
     iconBg: "rgb(235, 250, 242)",
-    pcColor: "text-red-600",
+    pcColor: "red-600",
   },
 ];
 
@@ -898,9 +897,9 @@ export const ordersGrid = [
     width: "150",
   },
   {
-    field: "OrderItems",
     headerText: "Status",
     template: gridOrderStatus,
+    field: "OrderItems",
     textAlign: "Center",
     width: "120",
   },
@@ -2014,6 +2013,7 @@ export const ordersData = [
   {
     OrderID: 10248,
     CustomerName: "Vinet",
+
     TotalAmount: 32.38,
     OrderItems: "Fresh Tomato",
     Location: "USA",
@@ -3009,13 +3009,13 @@ export const ecomPieChartData = [
 
 export const stackedChartData = [
   [
-    { x: "Jan", y: 150.1 },
-    { x: "Feb", y: 250.3 },
-    { x: "Mar", y: 240.4 },
-    { x: "Apr", y: 250.9 },
-    { x: "May", y: 235.9 },
-    { x: "Jun", y: 215.9 },
-    { x: "July", y: 286.9 },
+    { x: "Jan", y: 111.1 },
+    { x: "Feb", y: 127.3 },
+    { x: "Mar", y: 143.4 },
+    { x: "Apr", y: 159.9 },
+    { x: "May", y: 159.9 },
+    { x: "Jun", y: 159.9 },
+    { x: "July", y: 159.9 },
   ],
   [
     { x: "Jan", y: 111.1 },
@@ -3062,7 +3062,7 @@ export const stackedPrimaryXAxis = {
 export const stackedPrimaryYAxis = {
   lineStyle: { width: 0 },
   minimum: 100,
-  maximum: 500,
+  maximum: 400,
   interval: 100,
   majorTickLines: { width: 0 },
   majorGridLines: { width: 1 },
