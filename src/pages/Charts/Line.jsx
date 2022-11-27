@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, LineChart } from "../../components";
+import { ChartsHeader, LineChart } from "../../components";
 
 const Line = () => {
   return (
@@ -7,8 +7,8 @@ const Line = () => {
       className="m-4 md:m-10 mt-24 p-10 bg-white 
     dark:bg-secondary-dark-bg rounded-3xl"
     >
-      <Header category="Chart" title="Inflation Rate" />
-      <div className="w-full">
+      <ChartsHeader category="Line" title="Inflation Rate" />
+      <div className="w-full rounded-3xl">
         <LineChart />
       </div>
     </div>

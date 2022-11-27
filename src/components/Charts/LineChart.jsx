@@ -28,7 +28,8 @@ const LineChart = () => {
       primaryXAxis={LinePrimaryXAxis}
       chartArea={{ border: { width: 0 } }}
       tooltip={{ enable: true }}
-      background={currentMode === "Dark" ? "#cbd5e1" : "#fff"}
+      background={currentMode === "Dark" ? "#33373E" : "#fff"}
+      legendSettings={{ background: "white" }}
     >
       <Inject services={[LineSeries, DateTime, Legend, Tooltip]} />
       <SeriesCollectionDirective>
