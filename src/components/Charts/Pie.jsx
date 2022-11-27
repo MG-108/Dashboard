@@ -12,7 +12,7 @@ import {
 
 import { useStateContext } from "../../contexts/ContextProvider";
 
-const Pie = ({ id, data, legendVisibility, heigth }) => {
+const Doughnut = ({ id, data, legendVisibility, heigth }) => {
   const { currentMode } = useStateContext();
   return (
     <AccumulationChartComponent
@@ -58,4 +58,4 @@ const Pie = ({ id, data, legendVisibility, heigth }) => {
   );
 };
 
-export default Pie;
+export default Doughnut;
