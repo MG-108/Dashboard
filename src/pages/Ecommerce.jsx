@@ -1,26 +1,58 @@
 import React from "react";
 import { BsCurrencyDollar } from "react-icons/bs";
 import { GoPrimitiveDot } from "react-icons/go";
+import { IoIosMore } from "react-icons/io";
+import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
+
 import { Stacked, Pie, Button, SparkLine } from "../components";
-import { earningData, SparklineAreaData, ecomPieChart } from "../data/dummy";
+import {
+  earningData,
+  medicalproBranding,
+  recentTransactions,
+  weeklyStats,
+  dropdownData,
+  SparklineAreaData,
+  ecomPieChartData,
+} from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
+const DropDown = ({ currentMode }) => (
+  <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
+    <DropDownListComponent
+      id="time"
+      fields={{ text: "Time", value: "Id" }}
+      style={{ border: "none", color: currentMode === "Dark" && "white" }}
+      value="1"
+      dataSource={dropdownData}
+      popupHeight="220px"
+      popupWidth="120px"
+    />
+  </div>
+);
+
 const Ecommerce = () => {
-  const { currentColor } = useStateContext();
+  const { currentColor, currentMode } = useStateContext();
   return (
-    <div className="mt-12">
-      <div className="flex flex-wrap lg:flex-nowrap justify-center">
+    <div className="mt-24">
+      <div className="flex flex-wrap lg:flex-nowrap justify-center ">
         <section
           className="bg-white
          dark:text-gray-200 dark:bg-secondary-dark-bg 
          h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 
           bg-hero-pattern bg-no-repeat bg-cover bg-center"
         >
-          <div className="flex justify-between items-center ">
+          <div className="flex flex-start items-center  ">
             <div>
               <p className="font-bold text-gray-400 ">Earnings</p>
-              <p className="text-2xl">$108,000.00</p>
+              <p className="text-2xl font-semibold">$108.000,00</p>
             </div>
+            <button
+              type="button"
+              style={{ backgroundColor: currentColor }}
+              className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full ml-6 lg:mr-10  p-4"
+            >
+              <BsCurrencyDollar />
+            </button>
           </div>
           <div className="mt-6">
             <Button
@@ -28,7 +60,6 @@ const Ecommerce = () => {
               bgColor={currentColor}
               text="Download"
               borderRadius="10px"
-              size="md"
             />
           </div>
         </section>
@@ -134,11 +165,63 @@ const Ecommerce = () => {
               </div>
             </div>
             <div>
-              <Stacked width="320px" height="360px" />
+              <Stacked currentMode={currentMode} width="320px" height="360px" />
             </div>
           </section>
         </div>
+        <div>
+          <div
+            className=" rounded-2xl md:w-400 p-4 m-3"
+            style={{ backgroundColor: currentColor }}
+          >
+            <div className="flex justify-between items-center ">
+              <p className="font-semibold text-white text-2xl">Earnings</p>
+
+              <div>
+                <p className="text-2xl text-white font-semibold mt-8">$108.000,00</p>
+                <p className="text-gray-200">Monthly revenue</p>
+              </div>
+            </div>
+
+            <div className="mt-4">
+              <SparkLine
+                currentColor={currentColor}
+                id="column-sparkLine"
+                height="100px"
+                type="Column"
+                data={SparklineAreaData}
+                width="320"
+                color="rgb(242, 252, 253)"
+              />
+            </div>
+          </div>
+
+          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
+            <div>
+              <p className="text-2xl font-semibold ">$1.000.008</p>
+              <p className="text-gray-400">Yearly sales</p>
+            </div>
+
+            <div className="w-40">
+              <Pie
+                id="pie-chart"
+                data={ecomPieChartData}
+                legendVisiblity={false}
+                height="160px"
+              />
+            </div>
+          </div>
+        </div>
       </div>
+
+      <section className="flex gap-10 m-4 flex-wrap justify-center">
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
+          <div className="flex justify-between items-center gap-2">
+            <p className="text-xl font-semibold">Recent Transactions</p>
+            <DropDown currentMode={currentMode} />
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
