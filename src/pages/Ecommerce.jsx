@@ -347,6 +347,31 @@ const Ecommerce = () => {
               ))}
             </div>
           </div>
+          <div className="mt-2">
+            <p className="text-md font-semibold mb-2">Leaders</p>
+            <div className="flex gap-4">
+              {medicalproBranding.leaders.map((item, index) => (
+                <img
+                  key={index}
+                  src={item.image}
+                  className="rounded-full w-8 h-8"
+                  alt="Leaders"
+                />
+              ))}
+            </div>
+          </div>
+          <div className="flex justify-between items-center mt-5 border-t-1 border-color">
+            <div className="mt-3">
+              <Button
+                color="white"
+                bgColor={currentColor}
+                text="Add"
+                borderRadius="10px"
+                className=""
+              />
+            </div>
+            <p className="text-gray-400 text-sm"> 36 Recent Transactions</p>
+          </div>
         </section>
       </div>
     </div>
