@@ -756,7 +756,7 @@ export const medicalproBranding = {
       color: "orange",
     },
     {
-      name: "Angular",
+      name: "React",
       color: "#FB9678",
     },
   ],

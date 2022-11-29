@@ -4,7 +4,7 @@ import { GoPrimitiveDot } from "react-icons/go";
 import { IoIosMore } from "react-icons/io";
 import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
 
-import { Stacked, Pie, Button, SparkLine } from "../components";
+import { Stacked, Pie, Button, LineChart, SparkLine, Doughnut } from "../components";
 import {
   earningData,
   medicalproBranding,
@@ -69,9 +69,9 @@ const Ecommerce = () => {
             <div
               key={item.title}
               className="bg-white 
-            dark:text-gray-200
-            dark:bg-secondary-dark-bg md:w-56
-            p-4 pt9 rounded-2xl"
+							dark:text-gray-200
+							dark:bg-secondary-dark-bg md:w-56
+           		 p-4 pt9 rounded-2xl h-44"
             >
               <button
                 type="button"
@@ -93,13 +93,8 @@ const Ecommerce = () => {
           ))}
         </section>
       </div>
-
       <div className="flex gap-10 flex-wrap justify-center">
-        <div
-          className="bg-white 
-          dark:text-gray-200 dark:bg-secondary-dark-bg
-          m-3 p-4 rouded 2xl md:w-780"
-        >
+        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <section className="flex justify-between">
             <p className="font-semibold text-xl ">Revenue Updates</p>
             <div className="flex items-center gap-4">
@@ -169,8 +164,10 @@ const Ecommerce = () => {
             </div>
           </section>
         </div>
+
+        {/* earnings section */}
         <div>
-          <div
+          <section
             className=" rounded-2xl md:w-400 p-4 m-3"
             style={{ backgroundColor: currentColor }}
           >
@@ -194,9 +191,9 @@ const Ecommerce = () => {
                 color="rgb(242, 252, 253)"
               />
             </div>
-          </div>
+          </section>
 
-          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
+          <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
             <div>
               <p className="text-2xl font-semibold ">$1.000.008</p>
               <p className="text-gray-400">Yearly sales</p>
@@ -207,21 +204,151 @@ const Ecommerce = () => {
                 id="pie-chart"
                 data={ecomPieChartData}
                 legendVisiblity={false}
-                height="160px"
+                height="160"
               />
             </div>
-          </div>
+          </section>
         </div>
       </div>
 
-      <section className="flex gap-10 m-4 flex-wrap justify-center">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
+      <div className="flex gap-10 m-4 flex-wrap justify-center">
+        <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
             <p className="text-xl font-semibold">Recent Transactions</p>
             <DropDown currentMode={currentMode} />
           </div>
-        </div>
-      </section>
+          <div className="mt-10 w-72 md:w-400">
+            {recentTransactions.map((item) => (
+              <div key={item.title} className="flex justify-between mt-4">
+                <div className="flex gap-4">
+                  <button
+                    type="button"
+                    style={{
+                      color: item.iconColor,
+                      backgroundColor: item.iconBg,
+                    }}
+                    className="text-2xl rounded-lg p-4 hover:drop-shadow-xl"
+                  >
+                    {item.icon}
+                  </button>
+                  <div>
+                    <p className="text-md font-semibold ">{item.title}</p>
+                    <p className="text-sm text-gray-400 ">{item.desc}</p>
+                  </div>
+                </div>
+                <p className={`${item.pcColor}`}>{item.amount}</p>
+              </div>
+            ))}
+          </div>
+          <div className="flex justify-between items-center mt-5 border-t-1 border-color">
+            <div className="mt-3">
+              <Button
+                color="white"
+                bgColor={currentColor}
+                text="Add"
+                borderRadius="10px"
+              />
+            </div>
+            <p className="text-gray-400 text-sm">72 Recent Transactions</p>
+          </div>
+        </section>
+
+        <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760 ">
+          <div className="flex justify-between items-center gap-2 mb-10">
+            <p className="text-xl font-semibold">Sales Overview </p>
+            <DropDown currentMode={currentMode} />
+          </div>
+          <div className="md:w-full overflow-auto">
+            <LineChart />
+          </div>
+        </section>
+      </div>
+
+      <div className="flex flex-wrap justify-center">
+        <section className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+          <div classname="flex justify-between">
+            <p className="text-xl font-semibold">Weekly Stats</p>
+            <button type="button" className="text-xl font-semibold text-gray-500">
+              <IoIosMore />
+            </button>
+          </div>
+
+          <div className="mt-10">
+            {weeklyStats.map((item) => (
+              <div key={item.title} className="flex justify-between mt-4 w-full">
+                <div className="flex gap-4">
+                  <button
+                    type="button"
+                    style={{ background: item.iconBg }}
+                    className="text-2xl hover:drop-shadow-xl text-white rounded-full p-3"
+                  >
+                    {item.icon}
+                  </button>
+                  <div>
+                    <p className="text-md font-semibold">{item.title}</p>
+                    <p className="text-sm text-gray-400">{item.desc}</p>
+                  </div>
+                </div>
+                <p className={`${item.pcColor} `}>{item.amount} </p>
+              </div>
+            ))}
+            <div className="mt-4">
+              <SparkLine
+                currentColor={currentColor}
+                id="area-sparkline"
+                height="160"
+                type="Area"
+                data={SparklineAreaData}
+                width="320"
+                color="rgb(242, 252, 253)"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section
+          className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg
+				 rounded-2xl p-6 m-3"
+        >
+          <div className="flex justify-between">
+            <p className="text-xl font-semibold ">MedicalPro Branding</p>
+            <button type="button" className="text-xl font-semibold text-gray-400">
+              <IoIosMore />
+            </button>
+          </div>
+          <p
+            className="text-xs cursor-pointer hover:drop-shadow-xl font-semibold  rounded-lg w-24
+					 bg-orange-400 py-0.5 px-2 text-gray-200 mt-10"
+          >
+            16 APR, 2021
+          </p>
+
+          <div className="flex gap-4 border-b-1 border-color mt-6">
+            {medicalproBranding.data.map((item) => (
+              <div key={item.title} className="border-r-1 border-color pr-4 pb-2">
+                <p className="text-xs text-gray-400">{item.title} </p>
+                <p className="text-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="border-b-1 border-color pb-4 mt-2">
+            <p className="text-md font-semibold mb-2">Teams</p>
+            <div className="flex gap-4">
+              {medicalproBranding.teams.map((item) => (
+                <p
+                  key={item.name}
+                  style={{ background: item.color }}
+                  className="cursor-pointer hover:drop-shadow-xl text-white
+									 py-0.5 px-3 rounded-lg text-xs"
+                >
+                  {item.name}
+                </p>
+              ))}
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

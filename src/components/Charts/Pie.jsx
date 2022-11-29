@@ -12,13 +12,14 @@ import {
 
 import { useStateContext } from "../../contexts/ContextProvider";
 
-const Doughnut = ({ id, data, legendVisibility, heigth }) => {
+const Doughnut = ({ id, data, legendVisiblity, height }) => {
   const { currentMode } = useStateContext();
+
   return (
     <AccumulationChartComponent
       id={id}
-      legendSettings={{ visible: legendVisibility, background: "white" }}
-      heigth={heigth}
+      legendSettings={{ visible: legendVisiblity, background: "white" }}
+      height={height}
       background={currentMode === "Dark" ? "#33373E" : "#fff"}
       tooltip={{ enable: true }}
     >
