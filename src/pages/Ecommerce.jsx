@@ -16,6 +16,8 @@ import {
 } from "../data/dummy";
 import { useStateContext } from "../contexts/ContextProvider";
 
+import product9 from "../data/assets/product9.jpg";
+
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
     <DropDownListComponent
@@ -35,10 +37,11 @@ const Ecommerce = () => {
   return (
     <div className="mt-24">
       <div className="flex flex-wrap lg:flex-nowrap justify-center ">
+        {/* earnings section */}
         <section
           className="bg-white
-         dark:text-gray-200 dark:bg-secondary-dark-bg 
-         h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3 
+         dark:text-gray-200 dark:bg-secondary-dark-bg
+         h-44 rounded-xl w-full lg:w-80 p-8 pt-9 m-3
           bg-hero-pattern bg-no-repeat bg-cover bg-center"
         >
           <div className="flex flex-start items-center  ">
@@ -63,12 +66,12 @@ const Ecommerce = () => {
             />
           </div>
         </section>
-
+        {/* customers, products, sales, refunds section */}
         <section className="flex m-3 flex-wrap justify-center gap-1 items-center">
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="bg-white 
+              className="bg-white
 							dark:text-gray-200
 							dark:bg-secondary-dark-bg md:w-56
            		 p-4 pt9 rounded-2xl h-44"
@@ -76,7 +79,7 @@ const Ecommerce = () => {
               <button
                 type="button"
                 style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-2xl opacity-0.9 
+                className="text-2xl opacity-0.9
                 rounded-full p-4
                 hover:drop-shadow-xl"
               >
@@ -94,12 +97,13 @@ const Ecommerce = () => {
         </section>
       </div>
       <div className="flex gap-10 flex-wrap justify-center">
-        <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
+        {/* Revenue Updates, Expense and Budget chart section  */}
+        <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
           <section className="flex justify-between">
             <p className="font-semibold text-xl ">Revenue Updates</p>
             <div className="flex items-center gap-4">
               <p
-                className="flex items-center gap-2 
+                className="flex items-center gap-2
               text-gray-600 hover:drop-shadow-xl "
               >
                 <span>
@@ -108,7 +112,7 @@ const Ecommerce = () => {
                 <span>Expense</span>
               </p>
               <p
-                className="flex items-center gap-2 
+                className="flex items-center gap-2
               text-green-400 hover:drop-shadow-xl "
               >
                 <span>
@@ -163,10 +167,10 @@ const Ecommerce = () => {
               <Stacked currentMode={currentMode} width="320px" height="360px" />
             </div>
           </section>
-        </div>
+        </section>
 
-        {/* earnings section */}
         <div>
+          {/* monthly revenue section */}
           <section
             className=" rounded-2xl md:w-400 p-4 m-3"
             style={{ backgroundColor: currentColor }}
@@ -192,7 +196,7 @@ const Ecommerce = () => {
               />
             </div>
           </section>
-
+          {/* Yearly sales and Pie Chart section */}
           <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
             <div>
               <p className="text-2xl font-semibold ">$1.000.008</p>
@@ -212,6 +216,7 @@ const Ecommerce = () => {
       </div>
 
       <div className="flex gap-10 m-4 flex-wrap justify-center">
+        {/* Recent Trasactions section */}
         <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
           <div className="flex justify-between items-center gap-2">
             <p className="text-xl font-semibold">Recent Transactions</p>
@@ -253,6 +258,7 @@ const Ecommerce = () => {
           </div>
         </section>
 
+        {/* Sales Overview section */}
         <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760 ">
           <div className="flex justify-between items-center gap-2 mb-10">
             <p className="text-xl font-semibold">Sales Overview </p>
@@ -265,8 +271,9 @@ const Ecommerce = () => {
       </div>
 
       <div className="flex flex-wrap justify-center">
+        {/* Weekly Stats section */}
         <section className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
-          <div classname="flex justify-between">
+          <div className="flex justify-between">
             <p className="text-xl font-semibold">Weekly Stats</p>
             <button type="button" className="text-xl font-semibold text-gray-500">
               <IoIosMore />
@@ -305,7 +312,7 @@ const Ecommerce = () => {
             </div>
           </div>
         </section>
-
+        {/* Medical Branding section */}
         <section
           className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg
 				 rounded-2xl p-6 m-3"
@@ -371,6 +378,37 @@ const Ecommerce = () => {
               />
             </div>
             <p className="text-gray-400 text-sm"> 36 Recent Transactions</p>
+          </div>
+        </section>
+
+        {/* Daily Acitivities section */}
+        <section className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 ">
+          <div className="flex justify-between">
+            <p className="text-xl font-semibold">Daily Acitivities</p>
+            <button type="button" className="text-xl font-semibold text-gray-500">
+              <IoIosMore />
+            </button>
+          </div>
+
+          <div className="mt-10">
+            <img src={product9} alt="" className="md:w-96 h-50" />
+
+            <div className="mt-8">
+              <p className="font-semibold text-lg">React 18 coming soon!</p>
+              <p className="text-gray-400">By Jonathan Doe</p>
+              <p className="mt-8 text-sm text-gray-400">
+                This will be the small description for the news you have shown here.
+                There could be some great info.
+              </p>
+              <div className="mt-3">
+                <Button
+                  color="white"
+                  bgColor={currentColor}
+                  text="Read More"
+                  borderRadius="10px"
+                />
+              </div>
+            </div>
           </div>
         </section>
       </div>
