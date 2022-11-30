@@ -83,7 +83,7 @@ const App = () => {
             </div>
 
             <div>
-              {themeSettings && <ThemeSettings />}
+              {themeSettings ? <ThemeSettings /> : ""}
               <Routes>
                 {/* DashBoard */}
                 <Route path="/" element={<Ecommerce />} />
