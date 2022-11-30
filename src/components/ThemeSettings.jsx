@@ -4,6 +4,7 @@ import { BsCheck } from "react-icons/bs";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { useStateContext } from "../contexts/ContextProvider";
+import { DarkButton, LightButton } from "./index";
 
 import { themeColors } from "../data/dummy";
 
@@ -36,7 +37,7 @@ const ThemeSettings = () => {
 
         <div className="flex-col border-t-1 border-color p-4 ml-4">
           <p className="font-semibold text-lg">Theme Options</p>
-          <div className="mt-4">
+          <div className="mt-4 ">
             <input
               type="radio"
               id="light"
@@ -49,7 +50,9 @@ const ThemeSettings = () => {
             <label htmlFor="light" className="ml-2 text-md cursor-pointer">
               Light
             </label>
+            <LightButton />
           </div>
+
           <div className="mt-4">
             <input
               type="radio"
@@ -60,9 +63,10 @@ const ThemeSettings = () => {
               onChange={setMode}
               checked={currentMode === "Dark"}
             />
-            <label htmlFor="dark" className="ml-2 text-md cursor-pointer">
+            <label htmlFor="dark" className="ml-2 text-md cursor-pointer ">
               Dark
             </label>
+            <DarkButton />
           </div>
         </div>
 

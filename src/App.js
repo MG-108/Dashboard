@@ -25,8 +25,25 @@ import { Side } from "@syncfusion/ej2/svg-base";
 import { useStateContext } from "./contexts/ContextProvider";
 
 const App = () => {
-  const { activeMenu, themeSettings, setThemeSettings, currentColor, currentMode } =
-    useStateContext();
+  const {
+    activeMenu,
+    themeSettings,
+    setThemeSettings,
+    currentColor,
+    setCurrentColor,
+    currentMode,
+    setCurrentMode,
+  } = useStateContext();
+
+  useEffect(() => {
+    const currentThemeColor = localStorage.getItem("colorMode");
+    const currentThemeMode = localStorage.getItem("themeMode");
+
+    if (currentThemeColor && currentThemeMode) {
+      setCurrentColor(currentThemeColor);
+      setCurrentMode(currentThemeMode);
+    }
+  }, []);
 
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
@@ -66,7 +83,7 @@ const App = () => {
             </div>
 
             <div>
-              {themeSettings ? <ThemeSettings /> : ""}
+              {themeSettings && <ThemeSettings />}
               <Routes>
                 {/* DashBoard */}
                 <Route path="/" element={<Ecommerce />} />
