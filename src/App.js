@@ -21,7 +21,7 @@ import {
   ColorMapping,
   Editor,
 } from "./pages";
-import { Side } from "@syncfusion/ej2/svg-base";
+
 import { useStateContext } from "./contexts/ContextProvider";
 
 const App = () => {
@@ -109,6 +109,7 @@ const App = () => {
                 <Route path="/pyramid" element={<Pyramid />} />
               </Routes>
             </div>
+            <Footer />
           </div>
         </div>
       </BrowserRouter>
