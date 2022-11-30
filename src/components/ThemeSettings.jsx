@@ -4,7 +4,7 @@ import { BsCheck } from "react-icons/bs";
 import { TooltipComponent } from "@syncfusion/ej2-react-popups";
 
 import { useStateContext } from "../contexts/ContextProvider";
-import { DarkButton, LightButton } from "./index";
+import { DarkButton, LightButton } from "./";
 
 import { themeColors } from "../data/dummy";
 
