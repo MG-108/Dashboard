@@ -50,7 +50,7 @@ const Navbar = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // track the change of the screenSize
+  // tracking the change of the screenSize
   useEffect(() => {
     screenSize <= 900 ? setActiveMenu(false) : setActiveMenu(true);
   }, [screenSize]);
