@@ -40,7 +40,7 @@ const Sidebar = () => {
               text-xl font-extrabold tracking-tight
               dark:text-white text-slate-900"
             >
-              <SiShopware /> <span>Shoppy</span>
+              <SiShopware /> <span>Shoppyboard</span>
             </Link>
             <TooltipComponent content="Menu" position="BottomCenter">
               <button

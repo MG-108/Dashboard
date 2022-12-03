@@ -17,6 +17,9 @@ import {
 import { useStateContext } from "../contexts/ContextProvider";
 
 import product9 from "../data/assets/product9.jpg";
+import wallet from "../data/assets/teste.svg";
+import wallet1 from "../data/assets/wallet1.svg";
+import btc from "../data/assets/btc.svg";
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
@@ -258,10 +261,10 @@ const Ecommerce = () => {
           </div>
         </section>
 
-        {/* Sales Overview section */}
+        {/* Bitcoin section */}
         <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl w-96 md:w-760 ">
           <div className="flex justify-between items-center gap-2 mb-10">
-            <p className="text-xl font-semibold">Sales Overview </p>
+            <p className="text-xl font-semibold">Bitcoin Price </p>
             <DropDown currentMode={currentMode} />
           </div>
           <div className="md:w-full overflow-auto">
@@ -367,7 +370,7 @@ const Ecommerce = () => {
               ))}
             </div>
           </div>
-          <div className="flex justify-between items-center mt-5 border-t-1 border-color">
+          <div className="flex justify-between  mt-5 border-t-1 border-color">
             <div className="mt-3">
               <Button
                 color="white"
@@ -381,24 +384,32 @@ const Ecommerce = () => {
           </div>
         </section>
 
-        {/* Daily Acitivities section */}
+        {/* BTC wallet section */}
         <section className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 ">
-          <div className="flex justify-between">
-            <p className="text-xl font-semibold">Daily Acitivities</p>
+          <div className="flex  justify-between items-center">
+            {currentMode === "Dark" ? (
+              <img src={wallet} alt="crypto wallet" className="w-16 h-16" />
+            ) : (
+              <img src={wallet1} alt="crypto wallet" className="w-16 h-16" />
+            )}
+            <p className="text-xl font-semibold">BTC Wallet</p>
+
             <button type="button" className="text-xl font-semibold text-gray-500">
               <IoIosMore />
             </button>
           </div>
 
           <div className="mt-10">
-            <img src={product9} alt="" className="md:w-96 h-50" />
+            <img src={btc} alt="" className="w-36 h-36" />
 
             <div className="mt-8">
-              <p className="font-semibold text-lg">React 18 coming soon!</p>
-              <p className="text-gray-400">By Jonathan Doe</p>
-              <p className="mt-8 text-sm text-gray-400">
-                This will be the small description for the news you have shown here.
-                There could be some great info.
+              <p className="font-semibold text-lg">250 BTC</p>
+              <p className="text-gray-400">Purchased Date: 2018/01/01</p>
+              <p className="mt-2 text-sm text-gray-400">
+                Bitcoin is a cryptocurrency launched in January 2009 a decentralized
+                digital currency that is based on blockchain cryptography. It can
+                operate 24/7 without the need of a central bank or a goverment
+                regulator. BTC is the most trusted cryptocurrency in the market.
               </p>
               <div className="mt-3">
                 <Button
