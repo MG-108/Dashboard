@@ -1,10 +1,10 @@
-import React from "react";
-import { BsCurrencyDollar } from "react-icons/bs";
-import { GoPrimitiveDot } from "react-icons/go";
-import { IoIosMore } from "react-icons/io";
-import { DropDownListComponent } from "@syncfusion/ej2-react-dropdowns";
+import React from 'react';
+import { BsCurrencyDollar } from 'react-icons/bs';
+import { GoPrimitiveDot } from 'react-icons/go';
+import { IoIosMore } from 'react-icons/io';
+import { DropDownListComponent } from '@syncfusion/ej2-react-dropdowns';
 
-import { Stacked, Pie, Button, LineChart, SparkLine } from "../components";
+import { Stacked, Pie, Button, LineChart, SparkLine } from '../components';
 import {
   earningData,
   medicalproBranding,
@@ -13,20 +13,20 @@ import {
   dropdownData,
   SparklineAreaData,
   ecomPieChartData,
-} from "../data/dummy";
-import { useStateContext } from "../contexts/ContextProvider";
+} from '../data/dummy';
+import { useStateContext } from '../contexts/ContextProvider';
 
-import product9 from "../data/assets/product9.jpg";
-import wallet from "../data/assets/teste.svg";
-import wallet1 from "../data/assets/wallet1.svg";
-import btc from "../data/assets/btc.svg";
+import product9 from '../data/assets/product9.jpg';
+import wallet from '../data/assets/teste.svg';
+import wallet1 from '../data/assets/wallet1.svg';
+import btc from '../data/assets/btc.svg';
 
 const DropDown = ({ currentMode }) => (
   <div className="w-28 border-1 border-color px-2 py-1 rounded-md">
     <DropDownListComponent
       id="time"
-      fields={{ text: "Time", value: "Id" }}
-      style={{ border: "none", color: currentMode === "Dark" && "white" }}
+      fields={{ text: 'Time', value: 'Id' }}
+      style={{ border: 'none', color: currentMode === 'Dark' && 'white' }}
       value="1"
       dataSource={dropdownData}
       popupHeight="220px"
@@ -61,44 +61,33 @@ const Ecommerce = () => {
             </button>
           </div>
           <div className="mt-6">
-            <Button
-              color="white"
-              bgColor={currentColor}
-              text="Download"
-              borderRadius="10px"
-            />
+            <Button color="white" bgColor={currentColor} text="Download" borderRadius="10px" />
           </div>
         </section>
         {/* customers, products, sales, refunds section */}
-        <section className="flex m-3 flex-wrap justify-center gap-1 items-center">
+        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="bg-white
-							dark:text-gray-200
-							dark:bg-secondary-dark-bg md:w-56
-           		 p-4 pt9 rounded-2xl h-44"
+              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
             >
               <button
                 type="button"
                 style={{ color: item.iconColor, backgroundColor: item.iconBg }}
-                className="text-2xl opacity-0.9
-                rounded-full p-4
-                hover:drop-shadow-xl"
+                className="text-2xl opacity-0.9 rounded-full  p-4 hover:drop-shadow-xl"
               >
                 {item.icon}
               </button>
               <p className="mt-3">
                 <span className="text-lg font-semibold">{item.amount}</span>
-                <span className={`text-sm  ml-2 ${item.pcColor}`}>
-                  {item.percentage}
-                </span>
+                <span className={`text-sm ${item.pcColor} ml-2`}>{item.percentage}</span>
               </p>
-              <p className="text-sm text-gray-400 mt-1">{item.title}</p>
+              <p className="text-sm text-gray-400  mt-1">{item.title}</p>
             </div>
           ))}
-        </section>
+        </div>
       </div>
+
       <div className="flex gap-10 flex-wrap justify-center">
         {/* Revenue Updates, Expense and Budget chart section  */}
         <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg m-3 p-4 rounded-2xl md:w-780  ">
@@ -174,15 +163,12 @@ const Ecommerce = () => {
 
         <div>
           {/* monthly revenue section */}
-          <section
-            className=" rounded-2xl md:w-400 p-4 m-3"
-            style={{ backgroundColor: currentColor }}
-          >
+          <div className=" rounded-2xl md:w-400 p-4 m-3" style={{ backgroundColor: currentColor }}>
             <div className="flex justify-between items-center ">
               <p className="font-semibold text-white text-2xl">Earnings</p>
 
               <div>
-                <p className="text-2xl text-white font-semibold mt-8">$108.000,00</p>
+                <p className="text-2xl text-white font-semibold mt-8">$63,448.00</p>
                 <p className="text-gray-200">Monthly revenue</p>
               </div>
             </div>
@@ -198,26 +184,20 @@ const Ecommerce = () => {
                 color="rgb(242, 252, 253)"
               />
             </div>
-          </section>
-          {/* Yearly sales and Pie Chart section */}
-          <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-10">
+          </div>
+
+          <div className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl md:w-400 p-8 m-3 flex justify-center items-center gap-6 md:gap-10">
             <div>
-              <p className="text-2xl font-semibold ">$1.000.008</p>
+              <p className="text-2xl font-semibold ">$785,246</p>
               <p className="text-gray-400">Yearly sales</p>
             </div>
 
             <div className="w-40">
-              <Pie
-                id="pie-chart"
-                data={ecomPieChartData}
-                legendVisiblity={false}
-                height="160"
-              />
+              <Pie id="pie-chart" data={ecomPieChartData} legendVisiblity={false} height="160px" />
             </div>
-          </section>
+          </div>
         </div>
       </div>
-
       <div className="flex gap-10 m-4 flex-wrap justify-center">
         {/* Recent Trasactions section */}
         <section className="bg-white dark:text-gray-200 dark:bg-secondary-dark-bg p-6 rounded-2xl">
@@ -250,12 +230,7 @@ const Ecommerce = () => {
           </div>
           <div className="flex justify-between items-center mt-5 border-t-1 border-color">
             <div className="mt-3">
-              <Button
-                color="white"
-                bgColor={currentColor}
-                text="Add"
-                borderRadius="10px"
-              />
+              <Button color="white" bgColor={currentColor} text="Add" borderRadius="10px" />
             </div>
             <p className="text-gray-400 text-sm">72 Recent Transactions</p>
           </div>
@@ -361,12 +336,7 @@ const Ecommerce = () => {
             <p className="text-md font-semibold mb-2">Leaders</p>
             <div className="flex gap-4">
               {medicalproBranding.leaders.map((item, index) => (
-                <img
-                  key={index}
-                  src={item.image}
-                  className="rounded-full w-8 h-8"
-                  alt="Leaders"
-                />
+                <img key={index} src={item.image} className="rounded-full w-8 h-8" alt="Leaders" />
               ))}
             </div>
           </div>
@@ -387,7 +357,7 @@ const Ecommerce = () => {
         {/* BTC wallet section */}
         <section className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3 ">
           <div className="flex  justify-between items-center">
-            {currentMode === "Dark" ? (
+            {currentMode === 'Dark' ? (
               <img src={wallet} alt="crypto wallet" className="w-16 h-16" />
             ) : (
               <img src={wallet1} alt="crypto wallet" className="w-16 h-16" />
@@ -406,18 +376,13 @@ const Ecommerce = () => {
               <p className="font-semibold text-lg">250 BTC</p>
               <p className="text-gray-400">Purchased Date: 2018/01/01</p>
               <p className="mt-2 text-sm text-gray-400">
-                Bitcoin is a cryptocurrency launched in January 2009 a decentralized
-                digital currency that is based on blockchain cryptography. It can
-                operate 24/7 without the need of a central bank or a goverment
-                regulator. BTC is the most trusted cryptocurrency in the market.
+                Bitcoin is a cryptocurrency launched in January 2009 a decentralized digital
+                currency that is based on blockchain cryptography. It can operate 24/7 without the
+                need of a central bank or a goverment regulator. BTC is the most trusted
+                cryptocurrency in the market.
               </p>
               <div className="mt-3">
-                <Button
-                  color="white"
-                  bgColor={currentColor}
-                  text="Read More"
-                  borderRadius="10px"
-                />
+                <Button color="white" bgColor={currentColor} text="Read More" borderRadius="10px" />
               </div>
             </div>
           </div>

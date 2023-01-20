@@ -1,16 +1,15 @@
-import React from "react";
-import { MdOutlineCancel } from "react-icons/md";
-import { BsCheck } from "react-icons/bs";
-import { TooltipComponent } from "@syncfusion/ej2-react-popups";
+import React from 'react';
+import { MdOutlineCancel } from 'react-icons/md';
+import { BsCheck } from 'react-icons/bs';
+import { TooltipComponent } from '@syncfusion/ej2-react-popups';
 
-import { useStateContext } from "../contexts/ContextProvider";
-import { DarkButton, LightButton } from "./";
+import { useStateContext } from '../contexts/ContextProvider';
+import { DarkButton, LightButton } from './';
 
-import { themeColors } from "../data/dummy";
+import { themeColors } from '../data/dummy';
 
 const ThemeSettings = () => {
-  const { setColor, setMode, currentMode, currentColor, setThemeSettings } =
-    useStateContext();
+  const { setColor, setMode, currentMode, currentColor, setThemeSettings } = useStateContext();
 
   return (
     <div
@@ -28,7 +27,7 @@ const ThemeSettings = () => {
             onClick={() => {
               setThemeSettings(false);
             }}
-            style={{ color: "rgb(153, 171, 180)", borderRadius: "50%" }}
+            style={{ color: 'rgb(153, 171, 180)', borderRadius: '50%' }}
             className="text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray"
           >
             <MdOutlineCancel />
@@ -45,7 +44,7 @@ const ThemeSettings = () => {
               value="Light"
               className="cursor-pointer"
               onChange={setMode}
-              checked={currentMode === "Light"}
+              checked={currentMode === 'Light'}
             />
             <label htmlFor="light" className="ml-2 text-md cursor-pointer">
               Light
@@ -61,7 +60,7 @@ const ThemeSettings = () => {
               value="Dark"
               className="cursor-pointer"
               onChange={setMode}
-              checked={currentMode === "Dark"}
+              checked={currentMode === 'Dark'}
             />
             <label htmlFor="dark" className="ml-2 text-md cursor-pointer ">
               Dark
@@ -84,7 +83,7 @@ const ThemeSettings = () => {
                   >
                     <BsCheck
                       className={`ml-2 text-2xl text-white ${
-                        item.color === currentColor ? "block" : "hidden"
+                        item.color === currentColor ? 'block' : 'hidden'
                       }`}
                     />
                   </button>
