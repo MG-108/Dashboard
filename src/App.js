@@ -1,8 +1,8 @@
 import React, { lazy, Suspense, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./App.css";
-import { Navbar, Footer, Sidebar, ThemeSettings } from "./components";
+import { Navbar, Footer, Sidebar, ThemeSettings, Loader } from "./components";
 
 import ThemeSettingsButton from "./components/Buttons/ThemeSettingsButton";
 
@@ -46,7 +46,7 @@ const App = () => {
 
   return (
     <div className={currentMode === "Dark" ? "dark" : ""}>
-      <Router>
+      <BrowserRouter>
         <div className="flex relative dark:bg-main-dark-bg">
           <ThemeSettingsButton />
 
@@ -72,8 +72,14 @@ const App = () => {
 
             <div>
               {themeSettings ? <ThemeSettings /> : ""}
-              <Routes>
-                <Suspense fallback={<h2>Loading</h2>}>
+              <Suspense
+                fallback={
+                  <div className="flex items-center justify-center">
+                    <Loader />
+                  </div>
+                }
+              >
+                <Routes>
                   {/* DashBoard */}
                   <Route path="/" element={<Ecommerce />} />
                   <Route path="/ecommerce" element={<Ecommerce />} />
@@ -96,13 +102,13 @@ const App = () => {
                   <Route path="/financial" element={<Financial />} />
                   <Route path="/color-mapping" element={<ColorMapping />} />
                   <Route path="/pyramid" element={<Pyramid />} />
-                </Suspense>
-              </Routes>
+                </Routes>
+              </Suspense>
             </div>
             <Footer />
           </div>
         </div>
-      </Router>
+      </BrowserRouter>
     </div>
   );
 };
