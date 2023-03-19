@@ -71,7 +71,9 @@ const App = () => {
             </div>
 
             <div>
-              <Suspense>{themeSettings ? <ThemeSettings /> : ""}</Suspense>
+              <Suspense fallback>
+                {themeSettings ? <ThemeSettings /> : ""}
+              </Suspense>
               <Suspense
                 fallback={
                   <div className="mt-[100px] md:mt-0 flex items-center justify-center">

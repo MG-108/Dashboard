@@ -29,6 +29,7 @@ const ColorMapping = () => {
       <ChartsHeader
         category="Color Mappping"
         title="USA CLIMATE - WEATHER BY MONTH"
+        chart
       />
       <div className="w-full">
         <ChartComponent
