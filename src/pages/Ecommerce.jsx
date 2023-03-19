@@ -68,11 +68,11 @@ const Ecommerce = () => {
           </div>
         </section>
         {/* customers, products, sales, refunds section */}
-        <div className="flex m-3 flex-wrap justify-center gap-1 items-center">
+        <div className="flex m-3 flex-row flex-wrap justify-center gap-4 md:gap-1 items-center">
           {earningData.map((item) => (
             <div
               key={item.title}
-              className="bg-white h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 pt-9 rounded-2xl "
+              className="bg-white h-40 w-40 md:h-44 dark:text-gray-200 dark:bg-secondary-dark-bg md:w-56  p-4 md:pt-9 rounded-2xl "
             >
               <button
                 type="button"
@@ -270,7 +270,7 @@ const Ecommerce = () => {
 
       <div className="flex flex-wrap justify-center">
         {/* Weekly Stats section */}
-        <section className="md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
+        <section className=" md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg rounded-2xl p-6 m-3">
           <div className="flex justify-between">
             <p className="text-xl font-semibold">Weekly Stats</p>
             <button
@@ -318,7 +318,7 @@ const Ecommerce = () => {
         </section>
         {/* Medical Branding section */}
         <section
-          className="w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg
+          className=" md:w-400 bg-white dark:text-gray-200 dark:bg-secondary-dark-bg
 				 rounded-2xl p-6 m-3"
         >
           <div className="flex justify-between">

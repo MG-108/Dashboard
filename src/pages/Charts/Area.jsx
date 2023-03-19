@@ -26,7 +26,11 @@ const Area = () => {
       className="m-4 md:m-10 mt-24 p-10 bg-white 
     dark:bg-secondary-dark-bg rounded-3xl"
     >
-      <ChartsHeader category="Area" title="Inflation in Rate in Percentage " />
+      <ChartsHeader
+        category="Area"
+        title="Inflation in Rate in Percentage "
+        chart
+      />
       <ChartComponent
         id="line-chart"
         height="420px"

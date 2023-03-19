@@ -34,7 +34,7 @@ const Financial = () => {
 
   return (
     <div className="m-4 md:m-10 mt-24 p-10 bg-white dark:bg-secondary-dark-bg rounded-3xl">
-      <ChartsHeader category="Financial" title="APPLE Historical" />
+      <ChartsHeader category="Financial" title="APPLE Historical" chart />
       <div className="w-full">
         <ChartComponent
           id="charts"
@@ -46,7 +46,14 @@ const Financial = () => {
           background={currentMode === "Dark" ? "#33373E" : "#fff"}
         >
           <Inject
-            services={[HiloSeries, Tooltip, DateTime, Logarithmic, Crosshair, Zoom]}
+            services={[
+              HiloSeries,
+              Tooltip,
+              DateTime,
+              Logarithmic,
+              Crosshair,
+              Zoom,
+            ]}
           />
           <SeriesCollectionDirective>
             <SeriesDirective

@@ -11,7 +11,11 @@ import {
   DataLabel,
 } from "@syncfusion/ej2-react-charts";
 
-import { barCustomSeries, barPrimaryXAxis, barPrimaryYAxis } from "../../data/dummy";
+import {
+  barCustomSeries,
+  barPrimaryXAxis,
+  barPrimaryYAxis,
+} from "../../data/dummy";
 import { ChartsHeader } from "../../components";
 import { useStateContext } from "../../contexts/ContextProvider";
 
@@ -23,7 +27,7 @@ const Bar = () => {
       className="m-4 md:m-10 mt-24 p-10 bg-white 
     dark:bg-secondary-dark-bg rounded-3xl"
     >
-      <ChartsHeader category="Bar" title="Olympic Medal Counts - RIO" />
+      <ChartsHeader category="Bar" title="Olympic Medal Counts - RIO" chart />
       <ChartComponent
         id="line-chart"
         height="420px"
@@ -34,7 +38,9 @@ const Bar = () => {
         background={currentMode === "Dark" ? "#33373E" : "#fff"}
         legendSettings={{ background: "white" }}
       >
-        <Inject services={[Category, Tooltip, ColumnSeries, DataLabel, Legend]} />
+        <Inject
+          services={[Category, Tooltip, ColumnSeries, DataLabel, Legend]}
+        />
         <SeriesCollectionDirective>
           {barCustomSeries.map((item, index) => (
             <SeriesDirective key={index} {...item} />

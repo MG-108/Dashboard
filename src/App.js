@@ -71,10 +71,10 @@ const App = () => {
             </div>
 
             <div>
-              {themeSettings ? <ThemeSettings /> : ""}
+              <Suspense>{themeSettings ? <ThemeSettings /> : ""}</Suspense>
               <Suspense
                 fallback={
-                  <div className="flex items-center justify-center">
+                  <div className="mt-[100px] md:mt-0 flex items-center justify-center">
                     <Loader />
                   </div>
                 }
